@@ -919,16 +919,13 @@ MulticopterPositionControl::start_flight_task()
 		should_disable_task = false;
 		int error = 0;
 		switch (MPC_AUTO_MODE.get()) {
-		case 0:
-		case 1:
-		case 2:
-			error =  _flight_tasks.switchTask(FlightTaskIndex::AutoLine);
-			break;
-
 		case 3:
 			error =  _flight_tasks.switchTask(FlightTaskIndex::AutoLineSmoothVel);
 			break;
 
+		case 0:
+		case 1:
+		case 2:
 		default:
 			error =  _flight_tasks.switchTask(FlightTaskIndex::AutoLine);
 			break;
